@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="credit.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="stage2">
+        <div class="logo" id="logo"><img src="./grafiki/bank.png" alt="">
+
+        </div>
+        
+        <div class="charts" id="charts">
+            <div class="holdings" id="holdings">Money holdings: <br> Stonk holdings: 0</div>
+            <div class="gdp" id="gdp">GDP: </div>
+            <div class="intrest" id="intrest">Intrest rates: </div>
+            <div class="index">
+              
+    
+            </div>
+        </div>
+        <div class="objectives" id="objectives">
+            <h3 id="h3">Sir, your job is to:</h3>
+            <ul id="economyObjectives">
+                <li>Keep GDP growing</li>
+                <li>Increase bank holdings by playing on stonk market</li>
+
+            </ul>
+
+            <h3>Information</h3>
+            <ul id="sir">
+                <li>Chart on top right pannel represents China Stonk Market Index</li>
+                <li id="orders"></li>
+                <li id="timeRemaining"></li>
+
+            </ul>
+
+            <div class="news">
+                <h3>News</h3>
+                <ul >
+                    <li id="list"></li>
+                    <li id="endmessage"></li>
+                </ul>
+            </div>
+        </div>
+        <div class="actions" id="actions">
+            <button class="regulate" id="re">Regulate tech industry</button>
+            <button class="deregulate" id="de">Deregulate tech industry</button>
+            <button class="buy">Buy tech stonks</button>
+            <button class="sell">Sell tech stonks</button>
+            <button class="intrestUp" onclick="intrestUp()">Raise Intrest rates</button>
+            <button class="intrestDown" onclick="intrestDown()">Cut intrest rates</button>
+        </div>
+      </div>
+</body>
+<script>
+let Holdings = 1000000
+let Gdp = 14720000
+let IntrestRates = 5
+let count = 0 
+let stonk = 0
+document.getElementById("intrest").innerHTML = `Intrest rates: ${IntrestRates}%`
+document.getElementById("holdings").innerHTML = `Money holdings: ${Holdings} <br> Stonk holdings: ${stonk}`
+
+
+
+
+
+    
+
+var intervalID;
+
+// Function to call repeatedly 
+if(true){
+    function sayHello(){
+    document.querySelector(".index").innerHTML+=`<div class="słup" style='height:${Math.random() * (95 - 55) + 55}%;'></div>`;
+    count+=1
+    Gdp+=1239
+    document.getElementById("gdp").innerHTML = `GDP: ${Gdp}`
+    document.getElementById("gdp").style.backgroundColor="green"
+
+}
+
+function sayRecession(){
+    document.querySelector(".index").innerHTML+=`<div class='słup' style='height:${Math.random() * (70 - 20) + 20}%;'></div>`;
+    count+=1
+    Gdp-= 3784
+    document.getElementById("gdp").innerHTML = `GDP: ${Gdp}`
+    document.getElementById("gdp").style.backgroundColor="#8e11008e"
+    
+
+
+}
+
+// Function to start setInterval call
+function start(){
+    stop()
+    intervalID = setInterval(sayHello, 1000);
+}
+function recession(){
+    stop()
+    intervalID = setInterval(sayRecession, 1000);
+}
+
+// Function to stop setInterval call
+function stop(){
+    clearInterval(intervalID);
+}
+document.querySelector(".deregulate").addEventListener("click", stopTimer);
+document.querySelector(".regulate").addEventListener("click", startTimer);
+document.querySelector(".regulate").addEventListener("click", recession);
+document.querySelector(".deregulate").addEventListener("click", start);
+
+document.querySelector(".regulate").addEventListener("click", info);
+document.querySelector(".deregulate").addEventListener("click", info);
+document.querySelector(".buy").addEventListener("click", buyStonk);
+document.querySelector(".sell").addEventListener("click", sellStonk);   
+
+start()
+
+
+function startRecession(){
+    document.getElementById("list").innerHTML = ("Financial crisis started")
+
+
+        if(IntrestRates>2.5){
+            recession()
+            document.querySelector(".regulate").classList.add('nonactive')
+            document.querySelector(".deregulate").classList.add('nonactive')
+            document.getElementById("orders").innerHTML = ("Sir, silly Americans caused global financial crisis, you need to cut rates immedietly")
+
+        }
+        else{
+            stopTimer()
+            start()
+            document.querySelector(".regulate").classList.remove('nonactive')
+            document.querySelector(".deregulate").classList.remove('nonactive')
+            document.getElementById("list").innerHTML = ("Crisis in china ended")
+            setTimeout(() => {
+                document.getElementById("orders").innerHTML = ""
+                document.getElementById("list").innerHTML = ""
+
+            }, 1);
+
+            
+    }
+
+        
+
+}
+
+}
+
+setInterval(() => {
+    if(count%20==0)
+    document.querySelector(".index").innerHTML=""
+
+}, 1000);
+
+
+
+function intrestUp(){
+    IntrestRates+=0.5
+    document.getElementById("intrest").innerHTML = `Intrest rates: ${IntrestRates}%`
+    if(IntrestRates<2.5){
+        startRecession()
+    }
+    if(IntrestRates>6){
+        startRecession()
+            document.getElementById("list").innerHTM = "Recession in China"
+            setTimeout(() => {
+                document.getElementById("orders").innerHTML="Sir, high intrest rates are causing recession"
+
+            }, 100);
+
+
+    }
+}
+
+function intrestDown(){
+    IntrestRates-=0.5
+    document.getElementById("intrest").innerHTML = `Intrest rates: ${IntrestRates}%`
+    if(IntrestRates<2.5){
+        startRecession()
+        
+    }
+}
+
+function info(){
+    if(event.target.id=="re"){
+        document.getElementById("list").innerHTML = ("<li>Chinese stocks drop on threat of regulation</li>")
+    }
+    if(event.target.id=="de"){
+        document.getElementById("list").innerHTML = ("<li>China stocks rise as cenbank chief vows to support economy</li>")
+
+    }
+
+
+}
+let XD = 1000000
+
+function buyStonk(){
+    
+    if(XD!=0){
+    let price = document.querySelector('.index').lastChild.offsetHeight
+    stonk = Math.floor(XD/price)
+    XD = 0
+    document.getElementById("holdings").innerHTML = `Money holdings: ${XD} <br> Stonk holdings: ${stonk}`
+
+    }
+
+}
+
+function sellStonk(){
+    if(stonk!=0){
+    let price = document.querySelector('.index').lastChild.offsetHeight
+    XD = Math.floor(stonk*price)
+    stonk = 0
+    document.getElementById("holdings").innerHTML = `Money holdings: ${XD} <br> Stonk holdings: ${stonk}`
+    }
+    if(XD>3000000 && XD<5000000){
+        console.log("dupa")
+        startRecession()
+        timeRemaining=30
+        startTimer()
+    }
+}
+let endmessage  = ["evergrande being unable to pay its debt  files for bankruptcy", 
+"Real estate developers threatend by evergrandes collapse radically decrease investments",
+"China reports lowest real estate sales since 2008", "More developers file for bankrupcy", 
+"Bank runs in Bejjig, Shenzen, Guangzhou, Tianjin [redacted] [redacted]", 
+"Most chinese banks [redacted], [redacted] [redacted] [redacted] [redacted] Ministry of National Defense People's Republic of China [redacted] [redacted]", 
+"Lowest export levels since 2001", "China demands US to pay its debt",
+"Western economies crippled by supply-shock, recession starts in Eurozone", 
+"Housing market crash in Canada",
+"Jobless claims in US surpass 15 milion", 
+"Chinese warships [redacted] [redacted] island [redacted] [redacted] [redacted] meeting in Pentagon [redacted] [redacted]",
+"US senate authorises naval blocade of Malacca strait and Bab-el-Mandeb strait.", 
+"Saudi government overthrown",
+"Vladimir Putin pledges to supply China with oil and gas",
+"Ukrainian crisis escalates",
+"#####.##./.###.]####[[]",
+"John F. Kennedy aircraft carrier hit with hypersonic missile [redacted] [redacted] [redacted] [redacted]",
+ "[redacted] [redacted] [redacted] [redacted] North Korea [redacted] [redacted] [redacted] [redacted] Seul [redacted] [redacted] [redacted]",
+ "",
+ "US senate allows use of low yield tactical [redacted] [redacted]",
+ "[redacted] Pjongjang completely [redacted] at least  [redacted] [redacted]",
+ "[redacted] [redacted] [redacted] B-2 over chinese city of [redacted]",
+ "[redacted] [redacted] Seoul, Busan, Dageu, Suwon, Tokyo, Yokohama, Nagoya, Sapporo, Kawasaki, Kyoto, Hiroshima, Kitakyushu" ,
+ "",
+ ".",
+ "American [redacted] [redacted] of Beijing, Guangzhou, Shenzhen, Chengdu, Tianjin†, Chongqing, Nanjing, Wuhan, Hangzho [redacted] [redacted] milion [redacted] ",
+ "",
+"[redacted], [redacted], New York, Los Angeles, Washington, Huston, Dallas [redacted] [redacted]. At least 19 000 000 [redacted][redacted] "]
+
+
+
+var timer;
+let timeRemaining = 15
+
+
+// Function to call repeatedly 
+function showTime(){
+    document.getElementById("timeRemaining").innerHTML = `Time remaining ${timeRemaining}`
+    timeRemaining-=1
+
+    console.log(timeRemaining)
+    if(timeRemaining==0){
+        badEnding(1)
+    }
+}
+
+// Function to start setInterval call
+function startTimer(){
+    timer = setInterval(showTime, 1000);
+
+}
+
+// Function to stop setInterval call
+function stopTimer(){
+    timeRemaining=15
+    clearInterval(timer);
+    document.getElementById("timeRemaining").innerHTML = ``
+
+}
+setInterval(() => {
+    if(XD> 20000000 && XD<1000000000){
+        XD+= 200000000000
+        ending()
+        stop()
+        return false
+    }
+}, 1000);
+
+let audio1 = new Audio('./grafiki/Messenger Incoming Call Ringtone .mp3');
+let audio2 = new Audio('./grafiki/short.mp3');
+function ending(){
+    document.querySelectorAll("button").forEach(button => {
+        button.classList.add("nonactive")
+    });
+    stopTimer()
+    timeToEx = 15
+    startCountdown()
+
+    audio1.play()
+    document.getElementById("logo").innerHTML=`<img src="./grafiki/Evergrande.png" alt="">
+            <div class="buttonContainer2">
+                <button class="yes btnLarge" ">ACCEPT</button>
+                <button class="no btnLarge" ">DECLINE</button>
+            </div>`
+
+            document.querySelector(".yes").addEventListener("click", acceptEver)
+            document.querySelector(".no").addEventListener("click", declineEver)
+            document.querySelector(".yes").classList.remove("nonactive")
+            document.querySelector(".no").classList.remove("nonactive")
+}
+function acceptEver(){
+    stopCountdown()
+    audio1.pause();
+    stopTimer()
+    document.querySelector(".buttonContainer2").innerHTML=""
+    talk()
+
+
+
+function talk(){
+    audio2.play()
+    let speach = ["Sir ",",", " we ", "are ", "going ", "bankrupt ", ", ", "give ", "us ", 
+    "fucking ", "money ", "or ", "everything ", "will ", "go ", "to ", "shit "]
+    let text = document.querySelector(".buttonContainer2")
+    var i = 0;        
+function myLoop() {
+  setTimeout(function() {   
+    text.insertAdjacentText("beforeend",speach[i])
+    console.log(i)
+    i++;                   
+    if (i < speach.length) {          
+      myLoop();            
+    }
+                   
+  }, 200)
+}
+
+myLoop();                   
+
+function selectButtons(){
+    setTimeout(() => {
+        document.querySelector(".logo").innerHTML=
+    `
+    <div class="buttonContainer3">
+                <button class="yes btnLarger" onclick="badEnding(2)" >ACCEPT</button>
+                <button class="no btnLarger" onclick="declineEver()" >DECLINE</button>
+            </div>
+    `
+    timeToEx = 15
+    startCountdown()
+
+    }, 5000);
+}
+selectButtons()
+
+}
+
+
+
+}
+function declineEver(){
+    finalJudgement()
+    audio1.pause();
+
+
+}
+
+
+function finalJudgement(){
+    stop()
+    setInterval(() => {
+        document.querySelector(".index").innerHTML+=`<div class='słup' style='height:${Math.random() * (20 - 5) + 5}%;'></div>`;
+    count+=1
+    Gdp-= 189853
+    document.getElementById("gdp").innerHTML = `GDP: ${Gdp}`
+    document.getElementById("gdp").style.backgroundColor="#8e11008e"
+    }, 1000);
+    document.getElementById("economyObjectives").innerHTML="Sir..."
+    document.getElementById("sir").innerHTML="Sir..."
+    stopCountdown()
+    console.log("shit shit shit")
+    
+    let text = document.querySelector("#endmessage")
+    var i = 0;        
+function myLoop() {
+  setTimeout(function() { 
+    text.innerHTML=""  
+    document.getElementById("list").innerHTML=""
+    text.insertAdjacentText("beforeend",endmessage[i])
+    let br = document.createElement("br")
+    document.querySelector("#endmessage").appendChild(br)
+
+    console.log(i)
+    i++;                   
+    if (i < endmessage.length) {          
+      myLoop();            
+    }
+                   
+  }, 2500)
+}
+
+myLoop();           
+let logo = document.getElementById("logo")
+let charts = document.getElementById("charts")
+let objectives = document.getElementById("objectives")
+let actions = document.getElementById("actions")
+
+function shutDown(element, time){
+    setTimeout(() => {
+    element.innerHTML=""
+    element.style.backgroundColor="black"
+}, time);
+}
+shutDown(logo, 1000)
+shutDown(actions, 37000)
+shutDown(charts, 65000)
+shutDown(objectives, 74000)
+shutDown(document.body, 78000)
+
+
+
+  
+
+
+
+
+
+
+
+}
+
+
+////////////////////////////////////////////////////////////////////
+var countdoenToExtinctiion;
+let timeToEx = 15
+
+
+// Function to call repeatedly 
+function countToExtinction(){
+    timeToEx-=1
+    console.log(timeToEx)
+
+    if(timeToEx===0){
+        document.querySelectorAll("button").forEach(button => {
+        button.classList.add("nonactive")
+        audio1.pause()
+        stopCountdown()
+    });
+    finalJudgement()
+
+    }
+    console.log(timeToEx)
+    document.getElementById("timeRemaining").innerHTML = `Time remaining ${timeToEx}`
+
+}
+
+// Function to start setInterval call
+function startCountdown(){
+    countdoenToExtinctiion = setInterval(countToExtinction, 1000);
+    console.log(timeToEx)
+}
+
+// Function to stop setInterval call
+function stopCountdown(){
+    clearInterval(countdoenToExtinctiion);
+}
+///////////////////////////////////////////////////////////////////
+
+
+
+function badEnding(scenario){
+    console.log("dupa")
+    
+    document.body.innerHTML=""
+    setTimeout(() => {
+        if(scenario ==1){
+            var speach = ["Sir ",",", " your ", "irresponsible ", "finncial ", "policy ", "resulted ","in ", "recession ","cringe ","and ",
+             "social ", "unrest. ", "Your ", "execution ", "date ", "is ", 
+            "now "]
+            var grafika = "./grafiki/execution.jpg"
+        }
+        if(scenario ==2){
+            var speach = ["Sir, ", "thank to ", "your actions ", "China ", "managed to ", "survive crisis ", "and has ", 
+            "become ", "worlds ", " first economy. ", "You ", "recive ", "infinite ", "social ", "credit and ",  "Chairman Xi ", "appointed ", "you ", "as ", "his ", "succesor ",
+        ]
+        var grafika = "./grafiki/based.jpg"
+    }
+    
+        
+        audio2.play()
+
+        document.body.innerHTML = 
+        `
+        <div class="xiCall">
+            <div class="window">
+                <img class="callWindow" src="${grafika}">
+                <div class="text"></div>
+                </div>
+            </div>
+        </div>
+        `
+
+
+
+        
+        let text = document.querySelector(".text")
+        console.log(text)
+        console.log(speach)
+        var i = 0;        
+    
+        function myLoop() {
+        setTimeout(function() {   
+        text.insertAdjacentText("beforeend",speach[i])
+        console.log(i)
+        i++;                   
+        if (i < speach.length) {          
+          myLoop();            
+        }                   
+      }, 200)
+    }
+    
+    myLoop();   
+    }, 800);
+
+
+    
+            
+}
+
+
+
+</script>
+
+</html>
+
+
+
+
