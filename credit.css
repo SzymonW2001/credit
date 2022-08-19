@@ -1,0 +1,498 @@
+
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #DE2910;
+}
+.main{
+    height: 15%;
+    width: 100%;
+    font-size: large;
+    color: #FFDE00;
+    text-align: center;
+
+}
+.header{
+    display: flex;
+    justify-content:space-between;
+    flex-direction: row !important;
+    height: 10vh !important;
+}
+.h1{
+    height: 100%;
+    width: 45% !important;
+    text-align: left;
+    margin-left: 10px !important;
+}
+.score{
+    height: 100%;
+    width: 45% !important;
+    text-align: right;
+    margin-right:20px !important;
+    margin-top: 10px !important;
+}
+
+button{
+    padding: 1vw;
+    width: 54vw;
+    margin: 3px;
+    border: 1px solid #FFDE00;
+    background-color: white;
+}
+
+.questionPictureContsiner > div > img {
+    width: 500px;
+    height: 400px;
+}
+.questionPictureContsiner{
+    display: flex;
+    text-align: center !important;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 70vw;
+
+}
+.answerPictures{
+    display: flex;
+    text-align: center !important;
+    justify-content: center;
+    width: 70vw;
+    flex-wrap: wrap;
+}
+.answerPictures>div>img{
+    width: 400px;
+    height: 400px;
+}
+
+h1{
+    padding: 5px;
+}
+.pointScreen >img {
+    position: fixed;
+    left:0vw;
+    top: 0vh;
+    width: 100vw !important;
+    height:100vh !important;
+    margin:0% !important;
+    padding: 0% !important;
+}
+.pointScreen{
+    width: 100vw;
+    margin:0% !important;
+    padding: 0% !important;
+}
+img{
+    margin: 0.5vw;
+}
+
+.question{
+    width: 70vw;
+    background-color: #DE2910;
+    padding: 2px;
+}
+.questioNnum{
+    text-align: left;
+    font-size: 1.2vw;
+    font-weight: bold;
+
+}
+
+.long{
+    width: 54vw !important;
+    height: 24.5vw !important;
+
+}
+.medium{
+    width: 26.5vw !important;
+    height: 26.5vw !important;}
+.small{
+    width: 26.5vw !important;
+    height: 26.5vw !important;
+}
+
+.center{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+body{
+    margin: 0px;
+    padding: 0px;
+}
+hr{
+    background-color: #FFDE00;
+    border: 3px solid #FFDE00;
+    width: 100vw;
+    margin: 4px;
+
+}
+
+.xiCall{
+    width: 100vw;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0px;
+    padding: 0px;
+    flex-wrap: wrap;
+}
+.window{
+    margin: 0px;
+    padding: 0px;
+    width: 70vw;
+    height: 85vh;
+    vertical-align: middle;
+    border: 5px solid #FFDE00;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+.callWindow{
+    width: 100%;
+    height: 70vh;
+    margin: 0px;
+    padding: 0px;
+}
+.accept, .decline{
+    width: 50% !important;
+    margin: 0px;
+    padding: 0px;
+    height: 8vh;
+    border: 0px;
+    color: white;
+    font-size: medium;
+    font-weight: bold;
+}
+.butContainer{
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #FFDE00;
+}
+.accept{
+    background-color: green;
+}
+.decline{
+    background-color: rgb(142, 3, 3);
+}
+.text{
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    margin: 10px;
+    color: #FFDE00;
+    font-weight: bold;
+
+}
+.timer{
+    padding: 10px;
+    margin: 10px;
+    border: 3px solid #FFDE00;
+    width: 5%;
+    color: #FFDE00;
+    font-weight: bold;
+    position: absolute;
+}
+.no, .yes{
+    width: 50% !important;
+    height: 100% !important;
+    margin: 0px;
+    padding: 0px;
+    height: 8vh;
+    border: 0px;
+    color: white;
+    font-size: medium;
+    font-weight: bold;
+    z-index: 1;
+}
+.no{
+    background-color: rgb(142, 3, 3);
+}
+.yes{
+    background-color: green;
+}
+.no:hover{
+    background-color: rgb(106, 4, 4);
+}
+.yes:hover{
+    background-color: rgb(3, 115, 3)
+}
+
+.stage2{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+}
+.logo, .charts, .actions,.objectives{
+    border: 3px solid #FFDE00;
+    width: 50%;
+    height: 50% !important;
+}
+.logo>img{
+    width: 25vw;
+    height: 22vw !important;
+    margin: 0px !important;
+    padding: 0px !important;
+    margin-left: 12vw !important;
+}
+.logo{
+    background-color: white;
+}
+.actions{
+    display: flex;
+}
+.actions > button{
+    margin: 0px !important;
+    padding: 0px !important;
+
+}
+li{
+    list-style: none;
+}
+.news{
+width: 100%;
+
+}
+.objectives{
+    color: #FFDE00;
+    padding: 8px;
+}
+.charts{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.holdings, .intrest, .gdp{
+    width: 33.3%;
+    border: 3px solid #FFDE00;
+    height: 20%;
+    color: #FFDE00;
+    padding: 8px;
+    font-size: large;
+    
+}
+.index{
+    width: 100%;
+    border: 3px solid #FFDE00;
+    height: 70%;
+    margin: 2.5%;
+    display:flex; 
+    flex-direction:row; 
+    flex:1
+
+}
+
+.słup, .słup2{
+    width: 5%;
+    height: 70%;
+    background-color: #FFDE00;
+    margin-top: auto;
+    border: 1px solid black;
+}
+.słup2{
+    height: 80%;
+    background-color: aliceblue;
+    margin-top: auto
+}
+
+.nonactive{
+    pointer-events: none;
+}
+.buttonContainer2, .buttonContainer3{
+    display: flex;
+    text-align: center !important;
+    width: 100% !important;
+    justify-content: center;
+    align-items: center;
+    color: #FFDE00;
+}
+.buttonContainer3{
+    height: 100%;
+}
+
+
+.btnLarge{
+    height: 6vh !important;
+}
+.btnLarger{
+    height: 100% !important;
+}
+.invisible{
+    display: none
+;
+}
+
+@media only screen and (max-width: 800px) {
+    /* For mobile phones: */
+    *{
+        margin: 0px !important;
+        padding: 0px !important;
+    }
+    button{
+        width: 98vw !important;
+        height: 15vw !important;
+        margin: 5px !important;
+    }
+    .center, .question{
+        width: 100vw;
+        }
+    .question{
+        margin-top: 1vh !important;
+    }
+    img{
+        width: 100vw !important;
+        height: 50vw !important;
+    }
+    .long{
+        width: 98vw !important;
+        height: 50vw !important;
+    }
+    .questionPictureContsiner{
+        width: 100vw;
+    }
+    .questioNnum{
+        font-size: large;
+        margin: 10px !important;
+    }
+    .medium,.small{
+        width: 48vw !important;
+        height: 48vw !important;
+        margin: 3px !important;
+    }
+    .answerPictures{
+        width: 100vw !important;
+    }
+    .pointScreen{
+        width: 100vw !important;
+        height: 100vh !important;
+    }
+    .pointScreen > img{
+        width: 100vw !important;
+        height: 50vw !important;
+    }
+    .h1{
+        font-size: 1.5vh !important;
+        padding: 5px !important;
+        margin: 5px !important;
+    }
+    hr{
+        height: 5px !important;
+        width: 100vw;
+        }
+    .h1, .score{
+        width: 100vw !important;
+        margin: 0px !important;
+        height: 7.5vh;
+        text-align: center;
+        display: flex;
+        vertical-align: middle;
+        justify-content: left;
+    }
+    .score{
+        padding: 1.5vh !important;
+    }
+    .header{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .invisible{
+        display: block !important;
+        width:  100vw !important;
+    }
+    .hr{
+        margin-top: 7.5vh !important;
+    }
+    .main{
+        width: 100vw !important;
+    }
+
+
+
+    .xiCall{
+        width: 100vw !important;
+        height: 60vw !important;
+    }
+    .window{
+        width: 100vw !important;
+        display: flex !important;
+        flex-wrap: wrap !important;
+        height: 80vw !important;
+        background-color: #DE2910 !important;
+        margin: 0px !important;
+        padding: 0px !important;
+        
+    }
+    .callWindow{
+        width: 100vw !important;
+        background-color: #DE2910 !important;
+        margin: 0px !important;
+        padding: 0px !important;
+
+    }
+    .butContainer{
+        width: 100vw !important;
+        background-color: #DE2910 !important;
+    }
+    .logo,.objectives,.actions,.charts{
+        width: 100vw !important;
+        font-size: small;
+    }
+    .actions> button{
+        width: 100vw !important;
+        height: 4vh !important;
+    }
+    .actions{
+        display: flex !important;
+        flex-wrap: wrap !important;
+    }
+    .logo,.objectives{
+        height: 20vh !important;
+    }
+    .actions{
+        height: 24vh !important;
+    }
+    .charts{
+        height: 36vh !important;
+    }
+    .index{
+        transform: rotate(180deg) !important;
+        transform: scaleY(-1) !important;
+
+    }
+    .charts> div{
+        font-size: small !important;
+    }
+    .logo > img{
+    
+        width: 80vw !important;
+        height: 15vh !important;
+    }
+    .yes, .no{
+        width: 50% !important;
+        margin: 0px !important;
+        padding: 0px !important;
+    }
+    .timer{
+        padding: 10px !important;
+        margin: 5px !important;
+        font-size: medium !important;
+        z-index: 1000;
+        border: none !important;
+    }
+    .text{
+        margin: 5px !important;
+        padding: 5px !important;
+        font-size: 4vw !important;
+    }
+
+
+
+
+  }
